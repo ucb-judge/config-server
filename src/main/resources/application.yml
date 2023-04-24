@@ -1,0 +1,31 @@
+# ucb-judge-config-server version: 1.0.0
+# Authors:  - Chris Apaza
+#           - Ignacio Illanes
+#           - Radomir Vladislavic
+
+server:
+  port: 8888 # application port
+
+spring:
+  application:
+    name: ucb-judge-config-server
+  security:
+    basic:
+      enabled: true
+    user:
+      name: ${CONFIG_SERVER_USER}
+      password: ${CONFIG_SERVER_PASSWORD}
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${GIT_REPO_URI}
+          clone-on-start: true
+          ignore-local-ssh-settings: false
+          host-key: ${HOST_KEY}
+          host-key-algorithm: ssh-rsa
+          private-key: file:${PRIVATE_KEY_PATH}
+        encrypt:
+          enabled: true
+encrypt:
+  key: ${ENCRYPT_KEY}
