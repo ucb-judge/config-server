@@ -9,6 +9,8 @@ server:
 spring:
   application:
     name: ucb-judge-config-server
+  zipkin:
+    base-url: ${ZIPKIN_SERVER_URI:http://localhost:9411}
   security:
     basic:
       enabled: true

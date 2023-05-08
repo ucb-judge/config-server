@@ -1,4 +1,5 @@
 FROM eclipse-temurin:11-jdk-alpine
+#FROM --platform=linux/x86_64 eclipse-temurin:11-jdk-alpine
 
 COPY docker/.ssh/ucb_judge_configurations /root/.ssh/
 COPY docker/.ssh/config /root/.ssh/
@@ -14,6 +15,8 @@ VOLUME /tmp
 
 ENV CONFIG_SERVER_USER="CONFIG_SERVER_USER"
 ENV CONFIG_SERVER_PASSWORD="CONFIG_SERVER_PASSWORD"
+
+ENV ZIPKIN_SERVER_URI="ZIPKIN_SERVER_URI"
 
 ENV GIT_REPO_URI="GIT_REPO_URI"
 ENV HOST_KEY="HOST_KEY"
