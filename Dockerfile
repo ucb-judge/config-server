@@ -1,5 +1,5 @@
-FROM eclipse-temurin:11-jdk-alpine
-#FROM --platform=linux/x86_64 eclipse-temurin:11-jdk-alpine
+#FROM eclipse-temurin:11-jdk-alpine
+FROM --platform=linux/x86_64 eclipse-temurin:11-jdk-alpine
 
 COPY docker/.ssh/ucb_judge_configurations /root/.ssh/
 COPY docker/.ssh/config /root/.ssh/
@@ -10,6 +10,9 @@ RUN apk update;  \
     chmod 600 /root/.ssh/ucb_judge_configurations
 
 EXPOSE 8888
+
+RUN mkdir -p /opt/ucb-judge/logs/uj-config-server
+VOLUME /opt/ucb-judge/logs/uj-config-server
 
 VOLUME /tmp
 

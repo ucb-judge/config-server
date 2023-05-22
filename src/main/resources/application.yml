@@ -20,7 +20,7 @@ spring:
       server:
         git:
           uri: ${GIT_REPO_URI}
-          clone-on-start: true
+#          clone-on-start: true
           ignore-local-ssh-settings: false
           host-key: ${HOST_KEY}
           host-key-algorithm: ssh-rsa
